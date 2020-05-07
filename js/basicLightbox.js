@@ -26,21 +26,22 @@ function openModal() {
   );
 
   instance.show(() => {
+    const frame = document.getElementById("formFrame");
+    frame.style.visibility = 'hidden';
+
     setTimeout(() => {
       const close = document.createElement("div");
-      const frame = document.getElementById("formFrame");
+
+      frame.style.visibility = 'visible';
 
       close.className = "close-button";
-
       close.style["top"] = frame.offsetTop - 19;
       close.style["left"] = frame.offsetLeft + frame.offsetWidth - 22;
-
       close.onclick = ev => instance.close();
 
       const lightbox = document.querySelector(".basicLightbox");
-
       lightbox.appendChild(close);
-    }, 1000);
+    }, 3000);
   });
 }
 
